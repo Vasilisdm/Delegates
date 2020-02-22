@@ -11,8 +11,12 @@ namespace Delegates
         {
             WorkPerformedHandler del1 = new WorkPerformedHandler(WorkPerformed1);
             WorkPerformedHandler del2 = new WorkPerformedHandler(WorkPerformed2);
+            WorkPerformedHandler del3 = new WorkPerformedHandler(WorkPerformed3);
 
-            DoWork(del1);
+            del1 += del2 + del3;
+            del1(3, WorkType.WriteCode);
+
+            //DoWork(del1);
         }
 
         static void DoWork(WorkPerformedHandler del)
@@ -28,6 +32,11 @@ namespace Delegates
         static void WorkPerformed2(int hours, WorkType workType)
         {
             Console.WriteLine($"WorkPerformed2 Hours worked: {hours}, Work type: {workType}");
+        }
+
+        static void WorkPerformed3(int hours, WorkType workType)
+        {
+            Console.WriteLine($"WorkPerformed3 Hours worked: {hours}, Work type: {workType}");
         }
     }
 }
