@@ -1,7 +1,7 @@
 ﻿using System;
 namespace Delegates
 {
-    public delegate int WorkPerformedHandler(object sender, WorkedPerformedEventArgs e);
+    public delegate void WorkPerformedHandler(object sender, WorkedPerformedEventArgs e);
 
     public class Worker
     {
