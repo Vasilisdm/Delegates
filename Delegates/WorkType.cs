@@ -3,9 +3,9 @@ namespace Delegates
 {
     public enum WorkType
     {
-        GoToMeetings,
-        WriteCode,
-        FixBugs,
-        NewFeatures
+        Meeting,
+        CodeWriting,
+        BugFixing,
+        ImplementingFeatures
     }
 }
