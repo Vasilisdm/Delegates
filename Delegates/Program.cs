@@ -8,12 +8,18 @@ namespace Delegates
         {
             Worker worker = new Worker();
             worker.WorkPerformed += new WorkPerformedHandler(Worker_WorkPerformed);
-            worker.DoWork(8, WorkType.WriteCode);
+            worker.WorkCompleted += new EventHandler(Worker_WorkCompleted);
+            worker.DoWork(8, WorkType.CodeWriting);
         }
 
         static void Worker_WorkPerformed(object sender, WorkedPerformedEventArgs e)
         {
             Console.WriteLine($"Hours worked: {e.Hours}, Type of Work: {e.WorkType}");
+        }
+
+        static void Worker_WorkCompleted(object sender, EventArgs e)
+        {
+            Console.WriteLine($"Work is done!");
         }
     }
 }
