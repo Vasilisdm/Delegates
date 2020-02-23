@@ -12,7 +12,7 @@ namespace Delegates
         {
             for (int i = 0; i < hours; i++)
             {
-                OnWorkPerformed(i + 1, WorkType.WriteCode);
+                OnWorkPerformed(i + 1, WorkType.CodeWriting);
             }
             OnWorkedCompleted();
         }
