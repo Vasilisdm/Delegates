@@ -1,7 +1,7 @@
 ﻿using System;
 namespace Delegates
 {
-    public delegate int WorkPerformedHandler(int hours, WorkType workType);
+    public delegate int WorkPerformedHandler(object sender, WorkedPerformedEventArgs e);
 
     public class Worker
     {
@@ -21,7 +21,7 @@ namespace Delegates
         {
             if (WorkPerformed is WorkPerformedHandler del)
             {
-                del(hours, workType);
+                del(this, new WorkedPerformedEventArgs(hours, workType));
             }
         }
 
