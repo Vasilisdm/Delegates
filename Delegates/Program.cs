@@ -8,10 +8,7 @@ namespace Delegates
         {
             Worker worker = new Worker();
 
-            worker.WorkPerformed += delegate(object sender, WorkedPerformedEventArgs e)
-            {
-                Console.WriteLine($"Hours worked: {e.Hours}, Type of Work: {e.WorkType}");
-            };
+            worker.WorkPerformed += (sender, e) => Console.WriteLine($"Hours worked: {e.Hours}, Type of Work: {e.WorkType}");
 
             worker.WorkCompleted += delegate (object sender, EventArgs e)
             {
