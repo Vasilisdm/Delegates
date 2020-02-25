@@ -7,8 +7,8 @@ namespace Delegates
         static void Main(string[] args)
         {
             Worker worker = new Worker();
-            worker.WorkPerformed += new WorkPerformedHandler(Worker_WorkPerformed);
-            worker.WorkCompleted += new EventHandler(Worker_WorkCompleted);
+            worker.WorkPerformed += Worker_WorkPerformed;
+            worker.WorkCompleted += Worker_WorkCompleted;
             worker.DoWork(8, WorkType.CodeWriting);
         }
 
