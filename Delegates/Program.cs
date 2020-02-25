@@ -2,10 +2,17 @@
 
 namespace Delegates
 {
+    public delegate int BizRulesDelegate(int x, int y);
+
     class Program
     {
         static void Main(string[] args)
         {
+            BizRulesDelegate addDel = (x, y) => x + y;
+            BizRulesDelegate multiplyDel = (x, y) => x * y;
+            var processData = new ProcessData();
+            processData.Process(3, 5, addDel);
+
             Worker worker = new Worker();
 
             worker.WorkPerformed += (sender, e) => Console.WriteLine($"Hours worked: {e.Hours}, Type of Work: {e.WorkType}");
