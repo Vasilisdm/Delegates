@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Delegates
 {
@@ -8,6 +9,14 @@ namespace Delegates
     {
         static void Main(string[] args)
         {
+            List<Customer> customers = new List<Customer>
+            {
+                new Customer { City = "Phoenix", FirstName = "John", LastName = "Doe", ID = 1 },
+                new Customer { City = "Phoenix", FirstName = "Jane", LastName = "Doe", ID = 500 },
+                new Customer { City = "Seattle", FirstName = "Suki", LastName = "Pizzoro", ID = 3 },
+                new Customer { City = "New York City", FirstName = "Michele", LastName = "Smith", ID = 4 },
+            };
+
             BizRulesDelegate addDel = (x, y) => x + y;
             BizRulesDelegate multiplyDel = (x, y) => x * y;
             var processData = new ProcessData();
