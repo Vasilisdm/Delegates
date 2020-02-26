@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Delegates
 {
@@ -16,6 +17,13 @@ namespace Delegates
                 new Customer { City = "Seattle", FirstName = "Suki", LastName = "Pizzoro", ID = 3 },
                 new Customer { City = "New York City", FirstName = "Michele", LastName = "Smith", ID = 4 },
             };
+
+            var pheonixCustomers = customers.Where(c => c.City == "Pheonix" && c.ID < 500).OrderBy(c => c.FirstName);
+
+            foreach (var customer in customers)
+            {
+                Console.WriteLine($"Customer's firstName: {customer.FirstName}");
+            }
 
             BizRulesDelegate addDel = (x, y) => x + y;
             BizRulesDelegate multiplyDel = (x, y) => x * y;
