@@ -13,8 +13,12 @@ namespace Delegates
             var processData = new ProcessData();
             processData.Process(3, 5, addDel);
 
-            Worker worker = new Worker();
+            Action<int, int> actionAddition = (x, y) => Console.WriteLine($"Action delegate addition {x+y}");
+            Action<int, int> actionMultiplication = (x, y) => Console.WriteLine($"Action delegate mutliplication {x*y}");
 
+            processData.ProcessAction(2, 3, actionMultiplication);
+
+            Worker worker = new Worker();
             worker.WorkPerformed += (sender, e) => Console.WriteLine($"Hours worked: {e.Hours}, Type of Work: {e.WorkType}");
 
             worker.WorkCompleted += delegate (object sender, EventArgs e)
@@ -22,7 +26,7 @@ namespace Delegates
                 Console.WriteLine($"Work is done!");
             };
 
-            worker.DoWork(8, WorkType.CodeWriting);
+            //worker.DoWork(8, WorkType.CodeWriting);
         }
 
         //static void Worker_WorkPerformed(object sender, WorkedPerformedEventArgs e)
