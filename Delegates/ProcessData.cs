@@ -8,5 +8,11 @@ namespace Delegates
             var result = del(x, y);
             Console.WriteLine($"Result of the delegate process is: {result}");
         }
+
+        public void ProcessAction(int x, int y, Action<int, int> action)
+        {
+            action(x, y);
+            Console.WriteLine("Action has been processed!");
+        }
     }
 }
