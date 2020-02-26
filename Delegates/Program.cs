@@ -13,10 +13,10 @@ namespace Delegates
             var processData = new ProcessData();
             processData.Process(3, 5, addDel);
 
-            Action<int, int> actionAddition = (x, y) => Console.WriteLine($"Action delegate addition {x+y}");
-            Action<int, int> actionMultiplication = (x, y) => Console.WriteLine($"Action delegate mutliplication {x*y}");
+            Func<int, int, int> funcAddition = (x, y) => x + y;
+            Func<int, int, int> funcMultiplication = (x, y) => x * y;
 
-            processData.ProcessAction(2, 3, actionMultiplication);
+            processData.ProcessFunc(2, 3, funcAddition);
 
             Worker worker = new Worker();
             worker.WorkPerformed += (sender, e) => Console.WriteLine($"Hours worked: {e.Hours}, Type of Work: {e.WorkType}");
